@@ -1,0 +1,78 @@
+@import "../../assets/styles/modules/mixins";
+@import "../../assets/styles/modules/variables";
+
+header.toolbar {
+  background-color: #fafafa;
+  box-shadow: $app__box-shadow;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  + * {
+    padding-top: $app__navigation-height;
+  }
+
+  .logo {
+    align-items: center;
+    display: flex;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-shadow: 0 0 4px $drop-shadow__dark__color;
+    text-transform: uppercase;
+    user-select: none;
+  
+    > i {
+      background: $app__gradient-background;
+      margin: 0 $layout-unit 0 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .header-row {
+    @include layout-container();
+    align-items: center;
+    display: flex;
+    height: $app__navigation-height;
+  }
+
+  .nav {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+
+    a {
+      color: $color__dark__secondary;
+      font-weight: 600;
+      margin: 0 0 0 $layout-unit__lg;
+      outline: none;
+      position: relative;
+      text-decoration: none;
+
+      &::before {
+        background-image: $app__gradient-background;
+        bottom: -4px;
+        content: "";
+        height: 3px;
+        position: absolute;
+        transition: $app__transition;
+        width: 0;
+      }
+
+      &:hover,
+      &.active {
+        color: $color__dark__primary;
+      }
+
+      &.active {
+        &::before {
+          width: 75%;
+        }
+      }
+    }
+  }
+}

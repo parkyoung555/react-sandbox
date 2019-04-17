@@ -1,0 +1,25 @@
+$layout-unit: 8px;
+$layout-unit__xs: $layout-unit / 2;
+$layout-unit__md: $layout-unit * 2;
+$layout-unit__lg: $layout-unit * 3;
+$layout-unit__xl: $layout-unit * 4;
+
+$drop-shadow__dark__color: rgba(0, 0, 0, .12);
+
+$color__dark__primary: rgba(0, 0, 0, .87);
+$color__dark__secondary: rgba(0, 0, 0, .54);
+$color__dark__divider: rgba(0, 0, 0, .12);
+
+$color__light__primary: rgba(255, 255, 255, 1);
+$color__light__secondary: rgba(255, 255, 255, .7);
+
+$app__primary-color: #fa709a;
+$app__accent-color: #fee140;
+
+$app__corner-sharpness: 8px;
+$app__box-shadow: 0 0 12px 0 $drop-shadow__dark__color;
+$app__gradient-background: linear-gradient(to right, $app__primary-color 0%, $app__accent-color 100%);
+
+$app__transition: all .4s cubic-bezier(.25,.8,.25,1);
+
+$app__navigation-height: 64px;

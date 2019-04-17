@@ -1,0 +1,61 @@
+@import "../../assets/styles/modules/variables";
+
+.mouse {
+    width: 20px;
+    height: 32px;
+    border: 2px solid $color__dark__primary;
+    border-radius: 24px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .mouse:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -2px;
+    background-color: $color__dark__primary;
+    border-radius: 100%;
+    width: 4px;
+    height: 4px;
+    opacity: 1;
+    -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+    transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+    -webkit-animation: scroll 1.5s -1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    animation: scroll 1.5s -1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  }
+  
+  @-webkit-keyframes scroll {
+    0%, 20% {
+      -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+      transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+    }
+    10% {
+      -webkit-transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+      transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+      transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+      opacity: 0.01;
+    }
+  }
+  @keyframes scroll {
+    0%, 20% {
+      -webkit-transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+      transform: translateY(0px) scaleY(1) scaleX(1) translateZ(0px);
+    }
+    10% {
+      -webkit-transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+      transform: translateY(0px) scaleY(1.2) scaleX(1.2) translateZ(0px);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+      transform: translateY(20px) scaleY(2.5) scaleX(0.5) translateZ(0px);
+      opacity: 0.01;
+    }
+  }
+  

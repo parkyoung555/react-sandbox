@@ -1,0 +1,17 @@
+@import "../../assets/styles/modules/mixins";
+@import "../../assets/styles/modules/variables";
+
+footer.page-footer {
+    font-size: 14px;
+    height: $app__navigation-height;
+    line-height: $app__navigation-height;
+    text-align: center;
+
+    .content {
+        @include layout-container();
+    }
+
+    span:not([role="img"]) {
+        color: $color__dark__secondary;
+    }
+}

@@ -1,0 +1,21 @@
+@import "./variables";
+
+$_layout__max-width: 1400px;
+$_layout__padding: $layout-unit__lg;
+
+@mixin layout-container() {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $_layout__max-width;
+    padding-left: $_layout__padding;
+    padding-right: $_layout__padding;
+    width: calc(100% - #{$_layout__padding * 2});
+}
+
+@mixin reset-button-styles() {
+    background-color: unset;
+    border: none;
+    outline: none;
+    padding: 0 0;
+    text-decoration: none;
+}

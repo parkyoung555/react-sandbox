@@ -1,0 +1,49 @@
+@import "../../assets/styles/modules/mixins";
+@import "../../assets/styles/modules/variables";
+
+$_browser-window__button__size: 12px;
+$_browser-window__toolbar__background-color: rgba(0, 0, 0, .06);
+$_browser-window__background-color: #fff;
+
+.browser-window {
+    background-color: $_browser-window__background-color;
+    border: 1px solid $color__dark__divider;
+    border-radius: $app__corner-sharpness;
+    box-shadow: $app__box-shadow;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .toolbar {
+        background-color: $_browser-window__toolbar__background-color;
+        flex-shrink: 0;
+        font-size: 0;
+        padding: $layout-unit;
+
+        button {
+            @include reset-button-styles();
+            background-color: $_browser-window__toolbar__background-color;
+            border-radius: 50%;
+            height: $_browser-window__button__size;
+            margin: 0 $layout-unit__xs 0 0;
+            width: $_browser-window__button__size;
+    
+            &.close {
+                background-color: #ff5c5c;
+            }
+    
+            &.minimize {
+                background-color: #ffbd4c;
+            }
+    
+            &.maximize {
+                background-color: #00ca56;
+            }
+        }
+    }
+
+    .content {
+        flex: 1 1 auto;
+        padding: $layout-unit;
+    }
+}

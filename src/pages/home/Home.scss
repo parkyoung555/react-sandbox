@@ -1,0 +1,218 @@
+@import "../../assets/styles/modules/mixins";
+@import "../../assets/styles/modules/variables";
+
+$_home__hero-section__mobile-breakpoint: 1150px;
+
+.homepage {
+
+    header.toolbar {
+        transition: $app__transition;
+
+        &:not(.floating) {
+            background-color: transparent;
+            box-shadow: none;
+
+            .nav {
+
+                a {
+                    color: $color__light__secondary;
+
+                    &::before {
+                        background-color: $color__light__primary;
+                        background-image: none;
+                    }
+
+                    &:hover,
+                    &.active {
+                        color: $color__light__primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.home {
+
+    .hero {
+        @include layout-container();
+        height: calc(100vh - #{$app__navigation-height});
+        position: relative;
+    
+        &::before {
+            background: linear-gradient(to right, $app__primary-color 0%, $app__accent-color 100%);
+            content: "";
+            border-radius: 50%;
+            width: 100%;
+            padding-top: 100%;
+            position: absolute;
+            right: -50%;
+            top: -50%;
+    
+            @media(max-width: $_home__hero-section__mobile-breakpoint) {
+                height: $_home__hero-section__mobile-breakpoint;
+                left: 50%;
+                padding-top: 0;
+                right: unset;
+                top: -$_home__hero-section__mobile-breakpoint / 1.5;
+                transform: translateX(-50%) rotate(180deg);
+                width: $_home__hero-section__mobile-breakpoint;
+            }
+        }
+    
+        .text {
+
+            h2 {
+                font-family: "loveloline_bold";
+                font-size: 120px;
+                margin: 0 0 $layout-unit__xl;
+                position: relative;
+                text-shadow: 0 0 8px rgba(0,0,0,.24);
+
+                span:not([role="img"]) {
+                    color: $color__dark__primary;
+                }
+        
+                @media(max-width: $_home__hero-section__mobile-breakpoint) {
+                    align-self: start;
+                    font-size: 80px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+        
+                &::before {
+                    background-image: $app__gradient-background;
+                    bottom: -4px;
+                    content: '';
+                    height: 8px;
+                    position: absolute;
+                    transition: $app__transition;
+                    width: 50%;
+                  }
+            }
+        
+            p {
+                color: $color__dark__secondary;
+                font-size: 24px;
+                margin: 0 0;
+    
+                @media(max-width: $_home__hero-section__mobile-breakpoint) {
+                    font-size: 20px;
+                }
+            }
+        }
+    
+        .graphic {
+
+            .browser-window {
+                $_browser-window-scale: 32;
+                height: 9px * $_browser-window-scale ;
+                max-width: calc(100% - #{$layout-unit__lg});
+                position: absolute;
+                width: 16px * $_browser-window-scale;
+        
+                @media(max-width: $_home__hero-section__mobile-breakpoint) {
+                    margin: $app__navigation-height 0 0;
+                    position: unset;
+                }
+        
+                .content {
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                }
+        
+                .sandbox-icon {
+                    height: 120px;
+                    width: 120px;
+        
+                    .stroke-color {
+                        fill: url(#svg-gradient);
+                    }
+        
+                    path {
+                        
+                        &.fill-1 {
+                            fill: transparentize($app__primary-color, .88);
+                        }
+        
+                        &.fill-2 {
+                            fill: none;
+                        }
+        
+                        &.fill-3 {
+                            fill: #fff;
+                        }
+        
+                        &.fill-4 {
+                            fill: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    
+        > .layout-row {
+            flex: 1 1 auto;
+    
+            @media(max-width: $_home__hero-section__mobile-breakpoint) {
+                flex-direction: column !important;
+        
+                .layout-column {
+                    margin: 0 0;
+                    order: 1;
+    
+                    &.text {
+                        flex: 1 1 auto;
+                        padding-bottom: $app__navigation-height;
+                        text-align: center;
+                    }
+        
+                    &.graphic {
+                        flex: 1;
+                        order: 0;
+                    }
+                }
+            }
+        }
+    
+        .layout-column {
+            position: relative;
+            // margin: 0 0 $app__navigation-height 0;
+        }
+    
+        #svg-gradient {
+            --primary-color: #{$app__primary-color};
+            --accent-color: #{$app__accent-color};
+        }
+    
+        .footer {
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            height: $app__navigation-height;
+            justify-content: center;
+    
+            .mouse {
+                transition: $app__transition;
+                
+        
+                &.scrolled {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+
+    .features {
+        align-items: center;
+        display: flex;
+        height: 500px;
+        justify-content: center;
+
+        h2 {
+            font-size: 80px;
+        }
+    }
+}

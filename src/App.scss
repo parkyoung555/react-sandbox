@@ -1,0 +1,33 @@
+@import "./assets/styles/modules/mixins";
+@import "./assets/styles/modules/variables";
+@import "./assets/styles/partials";
+
+$_background-dot-color: $color__dark__divider;
+$_background-dot-size: 2px;
+$_background-dot-space: 48px;
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(90deg, #fff ($_background-dot-space - $_background-dot-size), transparent 1%) center,
+    linear-gradient(#fff ($_background-dot-space - $_background-dot-size), transparent 1%) center,
+    $_background-dot-color;
+  background-size: $_background-dot-space $_background-dot-space;
+  display: flex;
+  height: 100%;
+
+  #root {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+
+    .main-content {
+      flex: 1 1 auto;
+    }
+  }
+}
+

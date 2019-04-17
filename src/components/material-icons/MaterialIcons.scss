@@ -1,0 +1,10 @@
+$_icon-sizes: 18, 24, 36, 48;
+
+@each $_icon-size in $_icon-sizes {
+
+    [class*="material-icons"].md-#{$_icon-size} {
+        font-size: #{$_icon-size}px;
+    }
+}
+
+
