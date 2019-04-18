@@ -51,7 +51,7 @@ export class Home extends Component {
                 </div>
             </section>
             <section className="features">
-                <h2>U suk rob</h2>
+                <h2>U suk sue</h2>
             </section>
         </div>;
     }

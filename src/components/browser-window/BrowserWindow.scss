@@ -13,6 +13,11 @@ $_browser-window__background-color: #fff;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: $app__transition;
+
+    &:hover {
+        box-shadow: 0 0 24px 0 $drop-shadow__dark__color;
+    }
 
     .toolbar {
         background-color: $_browser-window__toolbar__background-color;
