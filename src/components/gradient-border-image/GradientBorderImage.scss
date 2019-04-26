@@ -1,0 +1,46 @@
+@import "../../assets/styles/modules/variables";
+
+ $_gradient-border-image__size: 200;
+ $_gradient-border__stroke-width: 4;
+
+.gradient-border-image {
+    height:  #{$_gradient-border-image__size}px;
+    position: relative;
+    width:  #{$_gradient-border-image__size}px;
+
+    &:hover {
+
+        #circle {
+            transform: rotate(90deg);
+        }
+    }
+
+    img {
+        border-radius: 50%;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        margin: auto;
+        padding: #{$_gradient-border__stroke-width * 3}px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+
+        z-index: -1;
+    }
+
+    #circle {
+        fill: none;
+        height: 100%;
+        stroke: url(#svg-gradient-primary);
+        stroke-width: $_gradient-border__stroke-width;
+        transition: $app__transition;
+        width: 100%;
+
+        circle {
+            r: ($_gradient-border-image__size - $_gradient-border__stroke-width) / $_gradient-border-image__size;
+            vector-effect: non-scaling-stroke;
+        }
+    }
+} 

@@ -2,4 +2,8 @@
 
 .layout-container {
     @include layout-container();
+
+    &.paragraph {
+        max-width: $_layout__paragraph__max-width;
+    }
 }

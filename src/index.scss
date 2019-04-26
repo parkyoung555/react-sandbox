@@ -1,3 +1,5 @@
+@import "./assets/styles/modules/variables";
+
 body {
   margin: 0;
   padding: 0;
@@ -13,4 +15,9 @@ code {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
+}
+
+p {
+  font-family: 'Roboto Mono', monospace;
+  margin: $layout-unit__lg 0;
 }

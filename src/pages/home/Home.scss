@@ -1,9 +1,16 @@
 @import "../../assets/styles/modules/mixins";
 @import "../../assets/styles/modules/variables";
 
+$_background-dot-color: $color__dark__divider;
+$_background-dot-size: 2px;
+$_background-dot-space: 48px;
 $_home__hero-section__mobile-breakpoint: 1150px;
 
 .homepage {
+    background: linear-gradient(90deg, #fff ($_background-dot-space - $_background-dot-size), transparent 1%) center,
+    linear-gradient(#fff ($_background-dot-space - $_background-dot-size), transparent 1%) center,
+    $_background-dot-color;
+    background-size: $_background-dot-space $_background-dot-space;
 
     header.toolbar {
         transition: $app__transition;
@@ -59,6 +66,17 @@ $_home__hero-section__mobile-breakpoint: 1150px;
                 width: $_home__hero-section__mobile-breakpoint;
             }
         }
+
+        // &::after {
+        //     background: linear-gradient(-45deg, rgba(238,238,238, 0%) 0%, rgba(238,238,238, 100%) 100%);
+        //     border-radius: 50%;
+        //     bottom: -100px;
+        //     content: "";
+        //     height: 200px;
+        //     left: -100px;
+        //     position: absolute;
+        //     width: 200px;
+        // }
     
         .text {
 
@@ -127,7 +145,7 @@ $_home__hero-section__mobile-breakpoint: 1150px;
                     width: 120px;
         
                     .stroke-color {
-                        fill: url(#svg-gradient);
+                        fill: url(#svg-gradient-primary);
                     }
         
                     path {
@@ -181,11 +199,6 @@ $_home__hero-section__mobile-breakpoint: 1150px;
             // margin: 0 0 $app__navigation-height 0;
         }
     
-        #svg-gradient {
-            --primary-color: #{$app__primary-color};
-            --accent-color: #{$app__accent-color};
-        }
-    
         .footer {
             align-items: center;
             display: flex;
@@ -206,13 +219,38 @@ $_home__hero-section__mobile-breakpoint: 1150px;
     }
 
     .features {
+        @include layout-container();
         align-items: center;
         display: flex;
         height: 500px;
         justify-content: center;
 
         h2 {
-            font-size: 80px;
+            font-size: 64px;
+            margin: 0 0 $layout-unit__xl;
+        }
+
+        .cards {
+            // overflow-x: auto;
+        }
+
+        a.card-link {
+            display: flex;
+            // flex: 1 0 50%;
+            margin: $layout-unit__md;
+            text-decoration: none;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .card {
+                flex: 1 1 auto;
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 <svg aria-hidden="true" focusable="false" style="width:0;height:0;position:absolute;">
-  <linearGradient id="svg-gradient">
+  <linearGradient id="svg-gradient-primary">
     <stop offset="0%" stop-color="var(--primary-color)" />
     <stop offset="100%" stop-color="var(--accent-color)" />
   </linearGradient>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MaterialIcons } from '../material-icons/MaterialIcons';
+// import { MegaMenu } from '../mega-menu/MegaMenu';
 import { NavLink } from 'react-router-dom';
 import './Toolbar.scss';
 
@@ -25,6 +26,7 @@ export class Toolbar extends Component {
     render() {
         return <header className={'toolbar' + (this.state.floating ? ' floating' : '')}>
             <div className="header-row">
+                {/* <MegaMenu></MegaMenu> */}
                 <h1 className="logo"><MaterialIcons theme="outlined" size="18">whatshot</MaterialIcons>Sandbox</h1>
                 <div className="nav">
                     <NavLink exact to="/">Home</NavLink>

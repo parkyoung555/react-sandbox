@@ -4,7 +4,7 @@ import './LayoutContainer.scss';
 export class LayoutContainer extends Component {
 
     render() {
-        return <div className="layout-container">
+        return <div className={`layout-container ${this.props.className ? this.props.className : ""}`}>
             {this.props.children}
         </div>
     }

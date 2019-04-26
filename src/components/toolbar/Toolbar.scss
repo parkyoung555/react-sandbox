@@ -15,6 +15,10 @@ header.toolbar {
     padding-top: $app__navigation-height;
   }
 
+  .menu-toggle {
+    margin: 0 $layout-unit__lg 0 0;
+  }
+
   .logo {
     align-items: center;
     display: flex;

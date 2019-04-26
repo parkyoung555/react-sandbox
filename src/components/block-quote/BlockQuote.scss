@@ -1,0 +1,35 @@
+@import "../../assets/styles/modules/variables";
+
+blockquote {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 600;
+    justify-content: center;
+    margin: $layout-unit__lg;
+
+    > i {
+        background: $app__gradient-background;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        &:first-child {
+            align-self: flex-start;
+            transform: rotate(180deg);
+        }
+
+        &:last-child {
+            align-self: flex-end;
+            vertical-align: sub;
+        }
+    }
+
+    > span {
+        display: inline-block;
+        max-width: 300px;
+        margin: 0 $layout-unit__md;
+    }
+}

@@ -1,6 +1,7 @@
 @import "./variables";
 
 $_layout__max-width: 1400px;
+$_layout__paragraph__max-width: 700px;
 $_layout__padding: $layout-unit__lg;
 
 @mixin layout-container() {

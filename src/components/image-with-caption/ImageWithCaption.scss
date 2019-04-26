@@ -1,0 +1,14 @@
+@import "../../assets/styles/modules/variables";
+
+.image-with-caption {
+    color: $color__dark__secondary;
+    text-align: center;
+
+    img {
+        margin-bottom: 0 !important;
+    }
+
+    h4 {
+        margin: $layout-unit__md 0 0;
+    }
+}

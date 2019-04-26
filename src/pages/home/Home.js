@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ReactComponent as SandboxIcon } from './sandbox.svg';
-import { ReactComponent as SvgGradient } from './gradient.svg';
 import { MouseScrollIndicator } from '../../components/mouse-scroll-indicator/MouseScrollIndicator';
 import { BrowserWindow } from '../../components/browser-window/BrowserWindow';
+import { Card } from '../../components/card/Card';
 import './Home.scss';
 
 export class Home extends Component {
@@ -42,7 +42,6 @@ export class Home extends Component {
                     <div className="graphic layout-column layout-fill align-center justify-center">
                         <BrowserWindow>
                             <SandboxIcon className="sandbox-icon"></SandboxIcon>
-                            <SvgGradient></SvgGradient>
                         </BrowserWindow>
                     </div>
                 </div>
@@ -51,9 +50,49 @@ export class Home extends Component {
                 </div>
             </section>
             <section className="features">
-                <h2>U suk sue</h2>
+                <div className="layout-column">
+                    <h2>Some interesting things</h2>
+                    <div className="layout-row cards">
+                        {this.getCardData().map((data, index) => {
+                            return <a className="card-link" href={data.url} key={index}>
+                                <Card>
+                                    <div className="header-image"></div>
+                                    <div className="body">
+                                        <h3 className="title">{data.title}</h3>
+                                        <p>{data.body.slice(0, 50)}...</p>
+                                    </div>
+                                </Card>
+                            </a>;
+                        })}
+                    </div>
+                </div>
             </section>
         </div>;
+    }
+
+    getCardData() {
+        return [
+            {
+                title: 'Top 5 geometric fonts for 2019',
+                body: 'For some years now, geometric fonts have been a consistent trend when it comes to brand and interface design. Good examples include AirBnB’s Cereal, Google’s Product Sans, even Spotify uses a geometric font called Circular.',
+                url: 'https://uxdesign.cc/top-5-geometric-fonts-for-2019-4c34a405bd97'
+            },
+            {
+                title: 'Design better data tables',
+                body: 'Data is useless without the ability to visualize and act on it. The success of future industries will couple advanced data collection with a better user experience, and the data table comprises much of this user experience.',
+                url: 'https://uxdesign.cc/design-better-data-tables-4ecc99d23356'
+            },
+            {
+                title: 'What to Expect in Angular 8',
+                body: 'Angular 8 is just around the corner. Although the Angular team has been a bit circumspect about precisely when version 8 will be released, they recently revealed that version 8 would arrive in March or April.',
+                url: 'https://medium.com/grapecity/what-to-expect-in-angular-8-940b217b63cb'
+            },
+            {
+                title: 'Is There a React Equivalent for Angular’s ng-repeat?',
+                body: 'Yes. React doesn’t use a proprietary construct to iterate over a collection of data. Instead, it relies on native Javascript iterators to generate repeating blocks of UI.',
+                url: 'https://reactjsnews.com/NgRepeat-Equivalent-in-React'
+            }
+        ];
     }
 
     scrollEvent(event) {

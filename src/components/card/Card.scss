@@ -1,0 +1,42 @@
+@import "../../assets/styles/modules/variables";
+
+.card {
+    background-color: #fff;
+    border-radius: $app__corner-sharpness;
+    box-shadow: $app__box-shadow;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: $app__transition;
+
+    &:hover {
+        box-shadow: 0 0 24px 0 $drop-shadow__dark__color;
+        transform: translateY(-5%);
+    }
+
+    .header-image {
+        background-image: $app__gradient-background;
+        height: 160px;
+        width: 100%;
+    }
+
+    .body {
+        flex: 1 1 auto;
+        padding: $layout-unit__lg;
+    }
+
+    .title {
+        color: $color__dark__primary;
+        font-size: 24px;
+        margin: 0 0;
+    }
+
+    p {
+        color: $color__dark__secondary;
+        margin-top: $layout-unit__md;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

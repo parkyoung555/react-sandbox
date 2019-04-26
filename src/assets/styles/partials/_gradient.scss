@@ -1,0 +1,9 @@
+
+        #svg-gradient {
+            
+            &-primary {
+                --primary-color: #{$app__primary-color};
+                --accent-color: #{$app__accent-color};
+            }
+        }
+        

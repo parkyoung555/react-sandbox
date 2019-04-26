@@ -1,0 +1,47 @@
+@import "../../assets/styles/modules/variables";
+
+$_about-image-size: 200px;
+$_about-image-border-size: 4px;
+
+.about {
+    
+    .header {
+        text-align: center;
+    }
+
+    h1 {
+        color: $color__dark__primary;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: .05em;
+
+        &.title {
+            margin: $layout-unit__lg 0;
+        }
+    }
+
+    hr {
+        border-color: $color__dark__divider;
+        border-width: 1px 0 0 0;
+        margin: $layout-unit__lg auto;
+        width: 80px;
+    }
+
+    .gradient-border-image {
+        display: inline-block;
+        margin-top: 64px;
+    }
+
+    .body {
+
+        p {
+            font-size: 18px;
+            letter-spacing: .01em;
+            line-height: 1.8em;
+        }
+    
+        img {
+            width: 100%;
+        }
+    }
+}

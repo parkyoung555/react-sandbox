@@ -4,6 +4,7 @@ import { Toolbar } from './components/toolbar/Toolbar';
 import { About } from './pages/about/About';
 import { Home } from './pages/home/Home';
 import { Footer } from './components/footer/Footer';
+import { ReactComponent as SvgGradients } from './assets/images/gradient.svg';
 import './App.scss';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path="/about-me" component={About}></Route>
         </div>
         <Footer></Footer>
+        <SvgGradients></SvgGradients>
       </Router>
     );
   }
