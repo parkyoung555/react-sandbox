@@ -8,6 +8,7 @@ $_slide-bar__height: 48px;
     --complete-pulse-color-rgb: #{$app__accent-color-rgb};
     --handle-color: rgba(255,255,255,.9);
     --handle-contrast-color: #{$color__dark__primary};
+    -webkit-tap-highlight-color: transparent;
     position: relative;
     
     &__wrapper {

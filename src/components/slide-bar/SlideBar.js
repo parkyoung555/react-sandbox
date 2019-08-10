@@ -44,6 +44,9 @@ export class SlideBar extends Component {
         window.addEventListener('resize', this._setSlideTextWidth.bind(this));
         window.addEventListener('mouseup', this._handleMouseUpEvent.bind(this));
         window.addEventListener('mousemove', this._handleMouseMoveEvent.bind(this));
+        // mobile
+        window.addEventListener('touchend', this._handleMouseUpEvent.bind(this));
+        window.addEventListener('touchmove', this._handleMouseMoveEvent.bind(this));
     }
 
     componentWillUnmount() {
@@ -72,8 +75,9 @@ export class SlideBar extends Component {
 
     _handleMouseMoveEvent(event) {
         if (this.isMouseDown) {
+            const xPos = event.touches ? event.touches[0].clientX : event.clientX;
             const containerDims = this.componentElement.getBoundingClientRect();
-            this.currentPercentage = ((event.clientX - containerDims.left) / containerDims.width) * 100;
+            this.currentPercentage = ((xPos - containerDims.left) / containerDims.width) * 100;
             this.slideElement.style.width = `${this.currentPercentage > 100 ? 100 : (this.currentPercentage < 0 ? 0 : this.currentPercentage)}%`;
 
             this._setComponentStateClasses();
@@ -91,7 +95,7 @@ export class SlideBar extends Component {
     render() {
         return (
             <div className={`slide-bar${this.props.className ? ` ${this.props.className}` : ''}`}>
-                <div className="slide-bar__wrapper" onMouseDown={this._handleMouseDownEvent}>
+                <div className="slide-bar__wrapper" onMouseDown={this._handleMouseDownEvent} onTouchStart={this._handleMouseDownEvent}>
                     <div className="slide-bar__content">
                         <div className="slide-bar__slide" style={{ width: `${this.initialFillPercent}%` }}>
                             <span className="slide-bar__slide__text">{this.props.label}</span>
