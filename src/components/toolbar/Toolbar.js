@@ -31,6 +31,7 @@ export class Toolbar extends Component {
                 <div className="nav">
                     <NavLink exact to="/">Home</NavLink>
                     <NavLink to="/about-me">About</NavLink>
+                    <NavLink to="/components">Components</NavLink>
                 </div>
             </div>
         </header>;

@@ -15,11 +15,17 @@ $color__light__secondary: rgba(255, 255, 255, .7);
 
 $app__primary-color: #fa709a;
 $app__accent-color: #fee140;
+$app__primary-color-rgb: 250, 112, 154;
+$app__accent-color-rgb: 254, 225, 64;
 
 $app__corner-sharpness: 8px;
 $app__box-shadow: 0 0 12px 0 $drop-shadow__dark__color;
 $app__gradient-background: linear-gradient(to right, $app__primary-color 0%, $app__accent-color 100%);
+$app__gradient-background__contrast: $color__light__primary;
 
-$app__transition: all .4s cubic-bezier(.25,.8,.25,1);
+$animation-timing-ease: cubic-bezier(.25,.8,.25,1);
+
+$app__transition: all .4s $animation-timing-ease;
 
 $app__navigation-height: 64px;
+

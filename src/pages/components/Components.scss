@@ -1,0 +1,21 @@
+@import "../../assets/styles/modules/variables";
+
+.slide-bar {
+    margin: 40px;
+
+    &.keyo-blue {
+        --background: #007AFF;
+        // --background-contrast-color: #{$color__light__primary};
+        --complete-pulse-color-rgb: 0, 122, 255;
+        // --handle-color: rgba(255,255,255,.9);
+        // --handle-contrast-color: #{$color__dark__primary};
+    }
+
+    &.random {
+        --background: #000;
+        --background-contrast-color: #{$color__light__primary};
+        --complete-pulse-color-rgb: 0, 122, 255;
+        --handle-color: #{$app__gradient-background};
+        --handle-contrast-color: #{$color__dark__primary};
+    }
+}
