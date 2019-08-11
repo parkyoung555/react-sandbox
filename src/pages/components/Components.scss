@@ -9,6 +9,9 @@
         --complete-pulse-color-rgb: 0, 122, 255;
         // --handle-color: rgba(255,255,255,.9);
         // --handle-contrast-color: #{$color__dark__primary};
+        // --slide-bar-height: 48px;
+        // --border-radius: var(--slide-bar-height);
+        // --font-size: 16px;
     }
 
     &.random {
@@ -17,5 +20,19 @@
         --complete-pulse-color-rgb: #{$app__primary-color-rgb};
         --handle-color: #{$app__gradient-background};
         --handle-contrast-color: #{$color__dark__primary};
+        --slide-bar-height: 32px;
+        --border-radius: 0 12px 0 12px;
+        --font-size: 14px;
+
+        &:not(._dragging):not(._complete) {
+            
+            .slide-bar__slide {
+                opacity: .7;
+            }
+        }
+
+        &._dragging {
+            opacity: 1;
+        }
     }
 }

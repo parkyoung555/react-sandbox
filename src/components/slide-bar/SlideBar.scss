@@ -1,30 +1,33 @@
 @import "../../assets/styles/modules/variables";
 
-$_slide-bar__height: 48px;
-
 .slide-bar {
     --background: #{$app__gradient-background};
     --background-contrast-color: #{$color__light__primary};
     --complete-pulse-color-rgb: #{$app__accent-color-rgb};
     --handle-color: rgba(255,255,255,.9);
     --handle-contrast-color: #{$color__dark__primary};
+    --slide-bar-height: 48px;
+    --border-radius: var(--slide-bar-height);
+    --font-size: 16px;
+
     -webkit-tap-highlight-color: transparent;
     position: relative;
     
     &__wrapper {
         background: var(--background);
-        border-radius: $_slide-bar__height / 2;
+        border-radius: var(--border-radius);
         contain: strict;
         cursor: pointer;
-        font-size: 20px;
+        font-size: var(--font-size);
         font-weight: 600;
-        height: $_slide-bar__height;
+        height: var(--slide-bar-height);
         overflow: hidden;
         padding: 2px;
         user-select: none;
     }
 
     &__content {
+        border-radius: inherit;
         height: 100%;
         position: relative;
         text-align: center;
@@ -48,13 +51,13 @@ $_slide-bar__height: 48px;
     &__slide {
         background: var(--handle-color);
         bottom: 0;
-        border-radius: $_slide-bar__height / 2;
+        border-radius: inherit;
         box-sizing: border-box;
         color: var(--handle-contrast-color);
         height: 100%;
         justify-content: flex-start;
         left: 0;
-        min-width: $_slide-bar__height;
+        min-width: var(--slide-bar-height);
         overflow: hidden;
         position: absolute;
         right: 0;
@@ -87,12 +90,12 @@ $_slide-bar__height: 48px;
             bottom: 0;
             content: '';
             display: block;
-            height: $_slide-bar__height;
+            height: var(--slide-bar-height);
             margin: auto;
             position: absolute;
             right: 0;
             top: 0;
-            width: $_slide-bar__height;
+            width: var(--slide-bar-height);
             z-index: -1;
         }
     }

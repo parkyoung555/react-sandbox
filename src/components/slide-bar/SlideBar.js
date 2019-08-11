@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './SlideBar.scss';
 
 export class SlideBar extends Component {
 
-    componentClass = 'slide-bar';
-    componentClasses = {
-        wrapper: `.${this.componentClass}__wrapper`,
-        content: `.${this.componentClass}__content`,
-        slide: `.${this.componentClass}__slide`,
-        slideText: `.${this.componentClass}__slide__text`,
-        base: `.${this.componentClass}__base`,
-        baseText: `.${this.componentClass}__base__text`
-    };
     componentStates = {
-        complete: '_complete'
+        complete: '_complete',
+        dragging: '_dragging'
     };
-    componentElement;
-    contentElement;
-    slideElement;
-    baseElement;
     isMouseDown = false;
     currentPercentage;
     initialFillPercent = 50;
@@ -32,15 +19,8 @@ export class SlideBar extends Component {
     }
 
     componentDidMount() {
-        this.componentElement = ReactDOM.findDOMNode(this);
-        this.contentElement = this.componentElement.querySelector(this.componentClasses.content);
-        this.slideElement = this.componentElement.querySelector(this.componentClasses.slide);
-        this.slideTextElement = this.componentElement.querySelector(this.componentClasses.slideText);
-        this.baseElement = this.componentElement.querySelector(this.componentClasses.base);
-        this.baseTextElement = this.componentElement.querySelector(this.componentClasses.baseText);
-
         this._setSlideTextWidth();
-        this._setComponentStateClasses();
+        this._setCompleteStateClass();
         window.addEventListener('resize', this._setSlideTextWidth.bind(this));
         window.addEventListener('mouseup', this._handleMouseUpEvent.bind(this));
         window.addEventListener('mousemove', this._handleMouseMoveEvent.bind(this));
@@ -54,54 +34,56 @@ export class SlideBar extends Component {
     }
 
     _setSlideTextWidth() {
-        this.slideTextElement.style.width = `${this.baseTextElement.getBoundingClientRect().width}px`;
+        this.refs.slideHandleText.style.width = `${this.refs.slideBaseText.getBoundingClientRect().width}px`;
     }
 
     _handleMouseDownEvent(event) {
         this.isMouseDown = true;
-        this.slideElement.style.transition = 'none';
+        this.refs.slideHandle.style.transition = 'none';
+        this.refs.component.classList.add(this.componentStates.dragging);
 
         this._handleMouseMoveEvent(event);
     }
 
     _handleMouseUpEvent() {
         this.isMouseDown = false;
-        this.slideElement.style.transition = null;
+        this.refs.slideHandle.style.transition = null;
+        this.refs.component.classList.remove(this.componentStates.dragging);
 
         if (this.currentPercentage < 100) {
-            this.slideElement.style.width = `${this.initialFillPercent}%`;
+            this.refs.slideHandle.style.width = `${this.initialFillPercent}%`;
         }
     }
 
     _handleMouseMoveEvent(event) {
         if (this.isMouseDown) {
             const xPos = event.touches ? event.touches[0].clientX : event.clientX;
-            const containerDims = this.componentElement.getBoundingClientRect();
+            const containerDims = this.refs.component.getBoundingClientRect();
             this.currentPercentage = ((xPos - containerDims.left) / containerDims.width) * 100;
-            this.slideElement.style.width = `${this.currentPercentage > 100 ? 100 : (this.currentPercentage < 0 ? 0 : this.currentPercentage)}%`;
+            this.refs.slideHandle.style.width = `${this.currentPercentage > 100 ? 100 : (this.currentPercentage < 0 ? 0 : this.currentPercentage)}%`;
 
-            this._setComponentStateClasses();
+            this._setCompleteStateClass();
         }
     }
 
-    _setComponentStateClasses() {
+    _setCompleteStateClass() {
         if (this.currentPercentage >= 100) {
-            this.componentElement.classList.add(this.componentStates.complete);
+            this.refs.component.classList.add(this.componentStates.complete);
         } else {
-            this.componentElement.classList.remove(this.componentStates.complete);
+            this.refs.component.classList.remove(this.componentStates.complete);
         }
     }
 
     render() {
         return (
-            <div className={`slide-bar${this.props.className ? ` ${this.props.className}` : ''}`}>
+            <div className={`slide-bar${this.props.className ? ` ${this.props.className}` : ''}`} ref="component">
                 <div className="slide-bar__wrapper" onMouseDown={this._handleMouseDownEvent} onTouchStart={this._handleMouseDownEvent}>
                     <div className="slide-bar__content">
-                        <div className="slide-bar__slide" style={{ width: `${this.initialFillPercent}%` }}>
-                            <span className="slide-bar__slide__text">{this.props.label}</span>
+                        <div className="slide-bar__slide" style={{ width: `${this.initialFillPercent}%` }} ref="slideHandle">
+                            <span className="slide-bar__slide__text" ref="slideHandleText">{this.props.label}</span>
                         </div>
-                        <div className="slide-bar__base">
-                            <span className="slide-bar__base__text">{this.props.label}</span>
+                        <div className="slide-bar__base" ref="slideBase">
+                            <span className="slide-bar__base__text" ref="slideBaseText">{this.props.label}</span>
                         </div>
                     </div>
                 </div>
